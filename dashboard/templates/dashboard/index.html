@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="div div-1">
+                <h2>SymDa</h2>
+            </div>
+            <div class="div div-2">
+                <a href="{% url 'index' %}"><div class="inner-div">Home </div></a>
+                <a href="{% url 'posts' %}"><div class="inner-div">Forum</div></a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'create-post' %}"><div class="inner-div">Create Post</div></a>
+                {% endif %}
+            </div>
+            <div class="div div-3" style="display:flex">
+              {% if user.is_authenticated %}
+              <a href="{% url 'user-logout' %}">
+                <div class="inner-div">LogOut</div>
+              </a>
+              <a href="{% url 'profile' %}"><div class="inner-div">
+                Profile
+              </div></a>
+              {% else %}
+              <a href="{% url 'user-login' %}">
+                <div class="inner-div">SignIn</div>
+              </a>
+              {% endif %}
+             
+            </div>
+        </nav>
+
+        <div class="hero">
+
+            <div class="content">
+                <div class="big-content"> Unlocking Insights, </div>
+                <div class="big-content"> Empowering Decisions</div>
+                <div class="inner-content">
+                    <div class="inner">At SymDa, we specialize in providing cutting-edge data analytics solutions
+                        tailored to meet your business needs. </div>
+                    <div class="inner">Our team of skilled data scientists and analysts is dedicated to delivering
+                        accurate insights and comprehensive</div>
+                    <div class="inner">reports that empower you to make informed decisions. With a focus on precision,
+                        we strive to unlock the </div>
+                    <div class="inner">full potential of your data, enabling you to gain a competitive advantage in
+                        today's data-driven world.</div>
+                </div>
+
+
+            </div>
+            <div class="image">
+                <img src="{% static 'dashboard/images/img3.jpg' %}" style="border-radius: 10px;" height="300px" width="400px" alt="" srcset="">
+            </div>
+
+        </div>
+
+    </header>
+
+    <section class="section-1">
+        <div class="companies">
+            More than 200+ Companies trusted us Worldwide.
+        </div>
+        <div>
+            <div class="companies-list">
+                <div class="company">Booking.com</div>
+                <div class="company"> <i class="fa-brands fa-microsoft" style="color: #b4bec2;"></i> Microsoft</div>
+                <div class="company"> <i class="fa-brands fa-google" style="color: #b4bec2;"></i> Google</div>
+                <div class="company"> <i class="fa-brands fa-spotify" style="color: #b4bec2;"></i> Spotify</div>
+                <div class="company">Trust Pilot</div>
+            </div>
+        </div>
+
+        <div class="section-2">
+            <div>
+                <h2 style="font-weight: bold;">
+                    What Makes Us Best?
+                </h2>
+                <div style="font-size: smaller;" >
+                    SymDa excels through expertise, customization, precision, advanced tools, and data visualization.
+                </div>
+                <div style="font-size: smaller;" >
+                    With skilled professionals, tailored solutions, and a commitment to accuracy,we empower
+                </div>
+                <div style="font-size: smaller;" >
+                    data-driven decisions for transformative results.
+                </div>
+            </div>
+            <div class="whywe">
+                <div class="whywee">
+                    <h3 style="font-weight: bold;">02 min</h3>
+                    <div>We are faster</div>
+                    <div>Payment Service</div>
+                </div>
+                <div class="whywee">
+                    <h3 style="font-weight: bold;">10%</h3>
+                    <div>Cashback on</div>
+                    <div>every transaction</div>
+                </div>
+                <div class="whywee">
+                    <h3 style="font-weight: bold;">200%</h3>
+                    <div>We have massive</div>
+                    <div>Success rate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="services">
+
+            <div>
+                <div>Data Exploration and Analysis Tool</div>
+                <br>
+                <div style="font-size: xx-small;">A user-friendly software tool that allows businesses to</div>
+                <div style="font-size: xx-small;">explore and analyze their data efficiently. It may include</div>
+                <div style="font-size: xx-small;">features such as data visualization, filtering,querying,</div>
+                <div style="font-size: xx-small;"> and basic statistical analysis.</div>
+                
+            </div>
+            <div>
+                <div>Predictive Analytics Platform</div>
+                <br>
+                <div style="font-size: xx-small;">A comprehensive platform that incorporates advanced </div>
+                <div style="font-size: xx-small;">statistical modeling and machine learning algorithms</div>
+                <div style="font-size: xx-small;">to predict future outcomes and trends. It helps businesses</div>
+                <div style="font-size: xx-small;"> make informed decisions and optimize their strategies</div>
+                <div style="font-size: xx-small;">based on data-driven insights.</div>
+
+            </div>
+            <div>
+                <div>Real-Time Data Monitoring System</div>
+                <br>
+                <div style="font-size: xx-small;">A system that enables businesses to monitor and </div>
+                <div style="font-size: xx-small;">analyze streaming data in real-time. It provides</div>
+                <div style="font-size: xx-small;">tlive dashboards, alerts, and notifications to  help </div>
+                <div style="font-size: xx-small;">businesses detect anomalies, identify patterns,</div>
+                <div style="font-size: xx-small;">band respond promptly to changing conditions.</div>
+            </div>
+            <div>
+                <div>Text and Sentiment Analysis Solution</div>
+                <br>
+                <div style="font-size: xx-small;">A solution that extracts insights from unstructured</div>
+                <div style="font-size: xx-small;">text data, such as customer reviews, social media posts,</div>
+                <div style="font-size: xx-small;">and survey responses. It uses natural language processing</div>
+                <div style="font-size: xx-small;"> techniques to analyze sentiment, identify themes, and </div>
+                <div style="font-size: xx-small;">extract actionable insights from textual data.</div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section-3" >
+            <h2 style="text-align: center;" >
+                Testimonials
+            </h2>
+            <div>
+
+<section style="margin-top: 30px;font-weight: bold; color: #011b1d; ">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-xl-8 text-center">
+
+      </div>
+    </div>
+  
+    <div class="row text-center d-flex align-items-stretch">
+      <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
+        <div class="card testimonial-card">
+          <div class="card-up" style="background-color:#011b1d;"></div>
+          <div class="avatar mx-auto bg-white">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
+              class="rounded-circle img-fluid" />
+          </div>
+          <div class="card-body">
+            <h4 class="mb-4">Maria Smantha</h4>
+            <hr />
+            <p class="dark-grey-text mt-4">
+              <i class="fas fa-quote-left pe-2"></i>Increased sales by 20% through targeted marketing campaigns driven by data insights.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
+        <div class="card testimonial-card">
+          <div class="card-up" style="background-color: #011b1d;"></div>
+          <div class="avatar mx-auto bg-white">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
+              class="rounded-circle img-fluid" />
+          </div>
+          <div class="card-body">
+            <h4 class="mb-4">Lisa Cudrow</h4>
+            <hr />
+            <p class="dark-grey-text mt-4">
+              <i class="fas fa-quote-left pe-2"></i>Optimized supply chain operations, resulting in a 15% reduction in costs and improved efficiency.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-0 d-flex align-items-stretch">
+        <div class="card testimonial-card">
+          <div class="card-up" style="background-color: #011b1d;"></div>
+          <div class="avatar mx-auto bg-white">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
+              class="rounded-circle img-fluid" />
+          </div>
+          <div class="card-body">
+            <h4 class="mb-4">John Smith</h4>
+            <hr />
+            <p class="dark-grey-text mt-4">
+              <i class="fas fa-quote-left pe-2"></i>Identified fraudulent activities and mitigated risks, saving the company millions in potential losses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+            </div>
+    </section>
+
+    <section>
+          <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted" style="margin-top: 20px;">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+  
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Company name
+            </h6>
+            <p>
+              SymDa is a leading provider of precision data analytics solutions, specializing in helping businesses unlock valuable insights and make informed decisions. With our team of experienced data scientists and analysts, we deliver customized analytics and reporting projects with accuracy and precision.
+  
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Data Exploration and Analysis Tool</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Predictive Analytics Platform</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Real-Time Data Monitoring System</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Customer Segmentation and Profiling Tool</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" >SymDa.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+    </section>
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
+</body>
+
+</html>

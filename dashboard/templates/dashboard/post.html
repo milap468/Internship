@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="div div-1" style="margin-bottom: 20px;">
+              <h2 style="padding-bottom: 20px;">SymDa</h2>
+            </div>
+            <div class="div div-2" style="margin-top: 7px;">
+              <a href="{% url 'index' %}">
+                <div class="inner-div">Home </div>
+              </a>
+              <a href="{% url 'posts' %}">
+                <div class="inner-div">Forum</div>
+              </a>
+              {% if user.is_authenticated %}
+                <a href="{% url 'create-post' %}"><div class="inner-div">Create Post</div></a>
+            {% endif %}
+            </div>
+            <div class="div div-3" style="margin-top: 7px; display:flex">
+                {% if user.is_authenticated %}
+                <a href="{% url 'user-logout' %}">
+                  <div class="inner-div">LogOut</div>
+                </a>
+                <a href="{% url 'profile' %}"><div class="inner-div">
+                  Profile
+                </div></a>
+                {% else %}
+                <a href="{% url 'user-login' %}">
+                  <div class="inner-div">SignIn</div>
+                </a>
+                {% endif %}
+              <div class="inner-div"></div>
+            </div>
+          </nav>
+
+          <div style="text-align: center; padding-bottom: 50px; padding-top: 20px; padding-left: 20px; padding-right: 20px;">
+            <h2>{{post.title}}</h2>
+            <br>
+            <img src="{{post.post_image.url}}" height="400px" style="border-radius: 10px;" width="800px" alt="" srcset="">
+          </div>
+
+          <div style="padding: 30px;">
+            {{post.content}}
+          </div>
+
+          <div style="text-align: center; padding: 30px;" id="like">
+            {% if user.is_authenticated %} <a href="{% url 'like' post.post_id %}"><i class="fa-regular fa-heart fa-2xl" id="icon" style="color: #edf6f9;"></i></a>{% endif %}
+            <span style="color: #edf6f9;">
+                {{count}} likes
+            </span>
+            
+          </div>
+
+          <section style="background-color: #011b1d;">
+            <div class="container my-5 py-5">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-8">
+                  <div class="card">
+                    <div class="card-body">
+                     
+
+
+                        {% for comment in comments %}
+                        <div class="d-flex flex-start align-items-center">
+                        <div>
+                          <h6 class="fw-bold text-primary mb-1" style="color: #011b1d;">{{comment.user.first_name}}</h6>
+                         
+                        </div>
+                      </div>
+          
+                      <p class="mt-3 mb-4 pb-2" style="color: #011b1d;">
+                        {{comment.comment}}
+                      </p>
+
+                      {% endfor  %}
+          
+                    
+                    </div>
+                    <div class="card-footer py-3 border-0" style="background-color: #edf6f9;">
+                      <div class="d-flex flex-start w-100">
+                        {% if user.is_authenticated %}
+                        <div class="form-outline w-100">
+                            <form action="{% url 'comment' post.post_id %}" method="POST">
+                                {% csrf_token %}
+                          <textarea class="form-control" name="content" id="textAreaExample" rows="4"
+                            style="background:#edf6f9;"></textarea>
+                          <label class="form-label" for="textAreaExample">Message</label>
+                        </div>
+                      </div>
+                      <div class="float-end mt-2 pt-1">
+                        <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+                    </form>
+                        <!-- <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button> -->
+                      </div>
+                      {% endif %}
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div style="text-align: center; color: #edf6f9;">
+                
+
+                    
+                    
+
+               
+          </div>
+
+    </header>
+
+
+
+
+
+      <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted" style="margin-top: 20px;">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+  
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Company name
+            </h6>
+            <p>
+              SymDa is a leading provider of precision data analytics solutions, specializing in helping businesses unlock valuable insights and make informed decisions. With our team of experienced data scientists and analysts, we deliver customized analytics and reporting projects with accuracy and precision.
+  
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Data Exploration and Analysis Tool</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Predictive Analytics Platform</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Real-Time Data Monitoring System</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Customer Segmentation and Profiling Tool</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" >SymDa.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+    <script>
+        let iconButton = document.getElementById("icon");
+        let likeButton = document.getElementById("like");
+        count = 0
+        iconButton.onclick = function () {
+            count = count + 1;
+            if (count %2 == 0){
+                // likeButton.appendChild(<i class="fa-solid fa-heart fa-2xl" id="icon" style="color: #edf6f9;"></i>)
+                iconButton.className = 'fa-solid fa-heart fa-2xl';
+            }
+            else{
+                iconButton.className = 'fa-regular fa-heart fa-2xl';
+                // likeButton.appendChild(<i class="fa-regular fa-heart fa-2xl" id="icon" style="color: #edf6f9;"></i>)
+            }
+            
+        };
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
+
+    
+</body>
+</html>
