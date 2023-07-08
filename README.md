@@ -17,3 +17,6 @@ Features:
 4. Post Liking and Commenting (Note: Only By Logged in users).
 5. People who are not logged in, can see the home page and also can see posts but are not able to create the post.
 6. Profile page for Registered users.
+
+
+<img width="517" alt="image" src="https://github.com/coding-milap/Internship/assets/109814390/f61bc16f-4bad-4689-9542-b604a8c5b1f2">
