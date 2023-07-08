@@ -25,7 +25,6 @@ Features:
 <img width="598" alt="image" src="https://github.com/coding-milap/Internship/assets/109814390/1453e4b5-e97f-40da-9575-5fc243267647">
 <img width="858" alt="image" src="https://github.com/coding-milap/Internship/assets/109814390/76d0e7cf-ea8c-4e94-ac76-5df8186735fb">
 <img width="503" alt="image" src="https://github.com/coding-milap/Internship/assets/109814390/0468a78e-a46c-40ad-aa32-197e81cdcabe">
-<img width="475" alt="image" src="https://github.com/coding-milap/Internship/assets/109814390/99f58b24-40b5-4a61-b3a3-afb23b7b97dd">
 <img width="474" alt="image" src="https://github.com/coding-milap/Internship/assets/109814390/4194165e-a1a8-4f69-b5ef-1b41cd00fedd">
 <img width="475" alt="image" src="https://github.com/coding-milap/Internship/assets/109814390/2b5d45cd-6d2e-451e-8b6e-a7c99509fe0c">
 
